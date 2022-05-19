@@ -115,6 +115,9 @@ const InputRow = (word) => {
               console.log('count: ', count);
               if (count > 5) {
                 console.log('win');
+                let wins = parseInt(localStorage.getItem('wins')) + 1;
+                
+                localStorage.setItem('wins', wins);
               }
             }
             inputArray = [];

@@ -4,10 +4,14 @@ import './Navbar.css';
 
 const Navbar = () => {
 
+    let wins = localStorage.getItem('wins');
     return (
         <div className="navbar">
-            <div className="navbar-container-name">
+            <div className="navbar-container">
                 <span>NOT Wordle 👍</span>
+            </div>
+            <div className="navbar-container">
+                <span>WINS: { wins }</span>
             </div>
         </div>
     );
