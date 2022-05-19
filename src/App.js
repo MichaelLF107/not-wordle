@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
+import InputRow from './InputRow';
+import Navbar from './Navbar';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const list = [
+  'negro',
+  'nigga',
+  'bitch',
+  'penis',
+  'carne'
+]
 
-export default App;
+const random = Math.floor(Math.random() * list.length);
+
+let Word = list[random];
+
+const Home = () => {
+  return (
+    <>
+      <main>
+        <Navbar />
+        <div className='row'>
+          <InputRow
+          word = {Word}
+          />
+        </div>
+      </main>
+    </>
+  );
+};
+
+export default Home;

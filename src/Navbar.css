@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80px;
+    background-color: hsl(241, 100%, 18%);
+    margin-bottom: 20px;
+}
+
+.navbar-container-name {
+    background-color: hsl(241, 100%, 10%);
+    font-size: 1.5em;
+    color: hsl(0, 0%, 90%);
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
