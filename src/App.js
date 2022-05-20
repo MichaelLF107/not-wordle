@@ -48,6 +48,7 @@ const Home = () => {
         <div className='row'>
           <InputField
           word = {Word}
+          wordList = {list}
           />
         </div>
       </main>

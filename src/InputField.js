@@ -4,11 +4,11 @@ import LoseScreen from "./loseScreen";
 
 let y = 1;
 
-const InputField = (word) => {
+const InputField = (word, wordList) => {
 
     let inputArray = [];
-    let foundArray = [];
     let array = Array.from(word.word);
+    wordList = word.wordList;
 
     const [playerWin, setPlayerWin] = React.useState(false);
     const [playerLose, setPlayerLose] = React.useState(false);
@@ -186,15 +186,28 @@ const InputField = (word) => {
           if (nextSibling !== null) {
             nextSibling.focus();
           }
-          console.log('nightmare');
           if (parseInt(fieldIndex, 10) % 5 === 0) {
+            let inputWord = inputArray.join('');
+            if (!wordList.includes(inputWord)) {
+              for (let i = 0; i < 5; i++) {
+                const input = document.querySelector(`input[name=input-${parseInt(fieldIndex, 10) - i}]`);
+                input.value = '';
+              }
+              let input = document.querySelector(`input[name=input-${parseInt(fieldIndex, 10) - 5}]`);
+              if (input !== null) {
+                input.focus();
+              } else {
+                input = document.querySelector(`input[name=input-${parseInt(fieldIndex, 10) - 4}]`);
+                input.focus();
+              }
+              
+            } else {
             console.log('array: ',array);
             console.log('inputarray: ' + inputArray);
             for (let i = 0; i <= 5; i++) {
               if(array.includes(inputArray[i])) {
                 console.log('found: ', i + 1);
                 changeInputYellow(y, i + 1);
-                foundArray.push(inputArray[i]);
               }
             }
             let count = 0;
@@ -225,6 +238,7 @@ const InputField = (word) => {
                 localStorage.setItem('loses', loses);
               }
             }
+          }
           }
         }
       }
