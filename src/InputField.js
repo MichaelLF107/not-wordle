@@ -188,19 +188,16 @@ const InputField = (word, wordList) => {
           }
           if (parseInt(fieldIndex, 10) % 5 === 0) {
             let inputWord = inputArray.join('');
+            console.log(inputWord);
             if (!wordList.includes(inputWord)) {
               for (let i = 0; i < 5; i++) {
                 const input = document.querySelector(`input[name=input-${parseInt(fieldIndex, 10) - i}]`);
                 input.value = '';
               }
-              let input = document.querySelector(`input[name=input-${parseInt(fieldIndex, 10) - 5}]`);
-              if (input !== null) {
-                input.focus();
-              } else {
-                input = document.querySelector(`input[name=input-${parseInt(fieldIndex, 10) - 4}]`);
-                input.focus();
-              }
-              
+              let input = document.querySelector(`input[name=input-${parseInt(fieldIndex, 10) - 4}]`);
+              inputArray = [];
+              inputWord = '';
+              input.focus();
             } else {
             console.log('array: ',array);
             console.log('inputarray: ' + inputArray);
