@@ -1,5 +1,5 @@
 import React from 'react';
-import InputRow from './InputRow';
+import InputField from './InputField';
 import Navbar from './Navbar';
 
 import './App.css';
@@ -21,8 +21,14 @@ const list = [
   'digno',
   'feliz',
   'culto',
-  'mundo'
-]
+  'mundo',
+  'teste',
+  'certo',
+  'feliz',
+  'peste',
+  'menos',
+  'menor'
+];
 
 const random = Math.floor(Math.random() * list.length);
 
@@ -37,7 +43,7 @@ const Home = () => {
       <main>
         <Navbar />
         <div className='row'>
-          <InputRow
+          <InputField
           word = {Word}
           />
         </div>

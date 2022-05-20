@@ -2,7 +2,7 @@ import React from "react";
 
 let y = 1;
 
-const InputRow = (word) => {
+const InputField = (word) => {
 
     let inputArray = [];
     let foundArray = [];
@@ -384,4 +384,4 @@ const InputRow = (word) => {
     );
   };
 
-    export default InputRow;
+    export default InputField;
