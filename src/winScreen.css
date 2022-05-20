@@ -27,11 +27,17 @@
 .win-btn {
     background-color: hsl(113, 61%, 30%);
     color: hsl(117, 100%, 64%);
-    font-size: 1.5em;
-    border: .1em solid hsl(117, 100%, 64%);
+    font-size: 2.5em;
+    border: .15em solid hsl(117, 100%, 64%);
     border-radius: 12px;
     padding-right: .9em;
     padding-left: .9em;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.win-btn:hover {
+    background-color: hsl(113, 61%, 40%);
+    color: hsl(117, 100%, 64%);
+    cursor: pointer;
 }
