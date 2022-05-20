@@ -1,4 +1,5 @@
 import React from "react";
+import WinScreen from "./winScreen";
 
 let y = 1;
 
@@ -7,6 +8,8 @@ const InputField = (word) => {
     let inputArray = [];
     let foundArray = [];
     let array = Array.from(word.word);
+
+    const [playerWin, setPlayerWin] = React.useState(false);
 
     const [input1, setInput1] = React.useState(false);
     const [input2, setInput2] = React.useState(false);
@@ -203,8 +206,8 @@ const InputField = (word) => {
               if (count > 5) {
                 console.log('win');
                 let wins = parseInt(localStorage.getItem('wins')) + 1;
-                
                 localStorage.setItem('wins', wins);
+                setPlayerWin(true);
               }
             }
             inputArray = [];
@@ -220,6 +223,7 @@ const InputField = (word) => {
   
     return (
       <>
+      {playerWin ? <WinScreen /> : null}
       <div className='input-row'>
         <input
           className={input1 ? 'input-green' : inputYellow1 ? 'input-yellow' : 'input'}
