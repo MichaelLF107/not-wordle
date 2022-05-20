@@ -57,3 +57,14 @@ main {
   text-align: center;
   margin-left: 20px;
 }
+
+.input-yellow {
+  border: .1em solid hsla(70, 100%, 50%, 0.922);
+  background-color: hsl(70, 73%, 21%);
+  color: hsla(70, 100%, 50%, 0.922);
+  font-size: 6em;
+  border-radius: .2em;
+  width: 105px;
+  text-align: center;
+  margin-left: 20px;
+}

@@ -5,7 +5,7 @@ let y = 1;
 const InputRow = (word) => {
 
     let inputArray = [];
-
+    let foundArray = [];
     let array = Array.from(word.word);
 
     const [input1, setInput1] = React.useState(false);
@@ -33,6 +33,32 @@ const InputRow = (word) => {
     const [input23, setInput23] = React.useState(false);
     const [input24, setInput24] = React.useState(false);
     const [input25, setInput25] = React.useState(false);
+
+    const [inputYellow1, setInputYellow1] = React.useState(false);
+    const [inputYellow2, setInputYellow2] = React.useState(false);
+    const [inputYellow3, setInputYellow3] = React.useState(false);
+    const [inputYellow4, setInputYellow4] = React.useState(false);
+    const [inputYellow5, setInputYellow5] = React.useState(false);
+    const [inputYellow6, setInputYellow6] = React.useState(false);
+    const [inputYellow7, setInputYellow7] = React.useState(false);
+    const [inputYellow8, setInputYellow8] = React.useState(false);
+    const [inputYellow9, setInputYellow9] = React.useState(false);
+    const [inputYellow10, setInputYellow10] = React.useState(false);
+    const [inputYellow11, setInputYellow11] = React.useState(false);
+    const [inputYellow12, setInputYellow12] = React.useState(false);
+    const [inputYellow13, setInputYellow13] = React.useState(false);
+    const [inputYellow14, setInputYellow14] = React.useState(false);
+    const [inputYellow15, setInputYellow15] = React.useState(false);
+    const [inputYellow16, setInputYellow16] = React.useState(false);
+    const [inputYellow17, setInputYellow17] = React.useState(false);
+    const [inputYellow18, setInputYellow18] = React.useState(false);
+    const [inputYellow19, setInputYellow19] = React.useState(false);
+    const [inputYellow20, setInputYellow20] = React.useState(false);
+    const [inputYellow21, setInputYellow21] = React.useState(false);
+    const [inputYellow22, setInputYellow22] = React.useState(false);
+    const [inputYellow23, setInputYellow23] = React.useState(false);
+    const [inputYellow24, setInputYellow24] = React.useState(false);
+    const [inputYellow25, setInputYellow25] = React.useState(false);
 
     const changeInput = (x, y) => {
       if(x === 1 && y === 1) {
@@ -88,6 +114,60 @@ const InputRow = (word) => {
       }
     };
 
+    const changeInputYellow = (x, y) => {
+      if(x === 1 && y === 1) {
+        setInputYellow1(true);
+      } else if (x === 1 && y === 2) {
+        setInputYellow2(true);
+      } else if (x === 1 && y === 3) {
+        setInputYellow3(true);
+      } else if (x === 1 && y === 4) {
+        setInputYellow4(true);
+      } else if (x === 1 && y === 5) {
+        setInputYellow5(true);
+      } else if (x === 2 && y === 1) {
+        setInputYellow6(true);
+      } else if (x === 2 && y === 2) {
+        setInputYellow7(true);
+      } else if (x === 2 && y === 3) {
+        setInputYellow8(true);
+      } else if (x === 2 && y === 4) {
+        setInputYellow9(true);
+      } else if (x === 2 && y === 5) {
+        setInputYellow10(true);
+      } else if (x === 3 && y === 1) {
+        setInputYellow11(true);
+      } else if (x === 3 && y === 2) {
+        setInputYellow12(true);
+      } else if (x === 3 && y === 3) {
+        setInputYellow13(true);
+      } else if (x === 3 && y === 4) {
+        setInputYellow14(true);
+      } else if (x === 3 && y === 5) {
+        setInputYellow15(true);
+      } else if (x === 4 && y === 1) {
+        setInputYellow16(true);
+      } else if (x === 4 && y === 2) {
+        setInputYellow17(true);
+      } else if (x === 4 && y === 3) {
+        setInputYellow18(true);
+      } else if (x === 4 && y === 4) {
+        setInputYellow19(true);
+      } else if (x === 4 && y === 5) {
+        setInputYellow20(true);
+      } else if (x === 5 && y === 1) {
+        setInputYellow21(true);
+      } else if (x === 5 && y === 2) {
+        setInputYellow22(true);
+      } else if (x === 5 && y === 3) {
+        setInputYellow23(true);
+      } else if (x === 5 && y === 4) {
+        setInputYellow24(true);
+      } else if (x === 5 && y === 5) {
+        setInputYellow25(true);
+      }
+    };
+
     const handleChange = e => {
       const { maxLength, value, name } = e.target;
       // eslint-disable-next-line
@@ -105,6 +185,13 @@ const InputRow = (word) => {
           if (parseInt(fieldIndex, 10) % 5 === 0) {
             console.log('array: ',array);
             console.log('inputarray: ' + inputArray);
+            for (let i = 0; i <= 5; i++) {
+              if(array.includes(inputArray[i])) {
+                console.log('found: ', i + 1);
+                changeInputYellow(y, i + 1);
+                foundArray.push(inputArray[i]);
+              }
+            }
             let count = 0;
             for (let i = 0; i <= 5; i++) {
               if (inputArray[i] === array[i]) {
@@ -135,31 +222,31 @@ const InputRow = (word) => {
       <>
       <div className='input-row'>
         <input
-          className={input1 ? 'input-green' : 'input'}
+          className={input1 ? 'input-green' : inputYellow1 ? 'input-yellow' : 'input'}
           type="text"
           name="input-1"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input2 ? 'input-green' : 'input'}
+          className={input2 ? 'input-green' : inputYellow2 ? 'input-yellow' : 'input'}
           type="text"
           name="input-2"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input3 ? 'input-green' : 'input'}
+          className={input3 ? 'input-green' : inputYellow3 ? 'input-yellow' : 'input'}
           type="text"
           name="input-3"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input4 ? 'input-green' : 'input'}
+          className={input4 ? 'input-green' : inputYellow4 ? 'input-yellow' : 'input'}
           type="text"
           name="input-4"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input5 ? 'input-green' : 'input'}
+          className={input5 ? 'input-green' : inputYellow5 ? 'input-yellow' : 'input'}
           type="text"
           name="input-5"
           maxLength={1}
@@ -167,31 +254,31 @@ const InputRow = (word) => {
       </div>
       <div className='input-row'>
         <input
-          className={input6 ? 'input-green' : 'input'}
+          className={input6 ? 'input-green' : inputYellow6 ? 'input-yellow' : 'input'}
           type="text"
           name="input-6"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input7 ? 'input-green' : 'input'}
+          className={input7 ? 'input-green' : inputYellow7 ? 'input-yellow' : 'input'}
           type="text"
           name="input-7"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input8 ? 'input-green' : 'input'}
+          className={input8 ? 'input-green' : inputYellow8 ? 'input-yellow' : 'input'}
           type="text"
           name="input-8"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input9 ? 'input-green' : 'input'}
+          className={input9 ? 'input-green' : inputYellow9 ? 'input-yellow' : 'input'}
           type="text"
           name="input-9"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input10 ? 'input-green' : 'input'}
+          className={input10 ? 'input-green' : inputYellow10 ? 'input-yellow' : 'input'}
           type="text"
           name="input-10"
           maxLength={1}
@@ -199,31 +286,31 @@ const InputRow = (word) => {
       </div>
       <div className='input-row'>
         <input
-          className={input11 ? 'input-green' : 'input'}
+          className={input11 ? 'input-green' : inputYellow11 ? 'input-yellow' : 'input'}
           type="text"
           name="input-11"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input12 ? 'input-green' : 'input'}
+          className={input12 ? 'input-green' : inputYellow12 ? 'input-yellow' : 'input'}
           type="text"
           name="input-12"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input13 ? 'input-green' : 'input'}
+          className={input13 ? 'input-green' : inputYellow13 ? 'input-yellow' : 'input'}
           type="text"
           name="input-13"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input14 ? 'input-green' : 'input'}
+          className={input14 ? 'input-green' : inputYellow14 ? 'input-yellow' : 'input'}
           type="text"
           name="input-14"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input15 ? 'input-green' : 'input'}
+          className={input15 ? 'input-green' : inputYellow15 ? 'input-yellow' : 'input'}
           type="text"
           name="input-15"
           maxLength={1}
@@ -231,31 +318,31 @@ const InputRow = (word) => {
       </div>
       <div className='input-row'>
         <input
-          className={input16 ? 'input-green' : 'input'}
+          className={input16 ? 'input-green' : inputYellow16 ? 'input-yellow' : 'input'}
           type="text"
           name="input-16"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input17 ? 'input-green' : 'input'}
+          className={input17 ? 'input-green' : inputYellow17 ? 'input-yellow' : 'input'}
           type="text"
           name="input-17"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input18 ? 'input-green' : 'input'}
+          className={input18 ? 'input-green' : inputYellow18 ? 'input-yellow' : 'input'}
           type="text"
           name="input-18"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input19 ? 'input-green' : 'input'}
+          className={input19 ? 'input-green' : inputYellow19 ? 'input-yellow' : 'input'}
           type="text"
           name="input-19"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input20 ? 'input-green' : 'input'}
+          className={input20 ? 'input-green' : inputYellow20 ? 'input-yellow' : 'input'}
           type="text"
           name="input-20"
           maxLength={1}
@@ -263,31 +350,31 @@ const InputRow = (word) => {
       </div>
       <div className='input-row'>
         <input
-          className={input21 ? 'input-green' : 'input'}
+          className={input21 ? 'input-green' : inputYellow21 ? 'input-yellow' : 'input'}
           type="text"
           name="input-21"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input22 ? 'input-green' : 'input'}
+          className={input22 ? 'input-green' : inputYellow22 ? 'input-yellow' : 'input'}
           type="text"
           name="input-22"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input23 ? 'input-green' : 'input'}
+          className={input23 ? 'input-green' : inputYellow23 ? 'input-yellow' : 'input'}
           type="text"
           name="input-23"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input24 ? 'input-green' : 'input'}
+          className={input24 ? 'input-green' : inputYellow24 ? 'input-yellow' : 'input'}
           type="text"
           name="input-24"
           maxLength={1}
           onChange={handleChange} />
         <input
-          className={input25 ? 'input-green' : 'input'}
+          className={input25 ? 'input-green' : inputYellow25 ? 'input-yellow' : 'input'}
           type="text"
           name="input-25"
           maxLength={1}
