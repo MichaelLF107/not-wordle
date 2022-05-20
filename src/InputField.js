@@ -1,5 +1,6 @@
 import React from "react";
 import WinScreen from "./winScreen";
+import LoseScreen from "./loseScreen";
 
 let y = 1;
 
@@ -10,6 +11,7 @@ const InputField = (word) => {
     let array = Array.from(word.word);
 
     const [playerWin, setPlayerWin] = React.useState(false);
+    const [playerLose, setPlayerLose] = React.useState(false);
 
     const [input1, setInput1] = React.useState(false);
     const [input2, setInput2] = React.useState(false);
@@ -216,6 +218,9 @@ const InputField = (word) => {
             console.log('y: ', y);
             y += 1;
             console.log('y++: ', y);
+            if(parseInt(fieldIndex, 10) === 25) {
+              setPlayerLose(true);
+            }
           }
         }
       }
@@ -224,6 +229,7 @@ const InputField = (word) => {
     return (
       <>
       {playerWin ? <WinScreen /> : null}
+      {playerLose && !playerWin ? <LoseScreen /> : null}
       <div className='input-row'>
         <input
           className={input1 ? 'input-green' : inputYellow1 ? 'input-yellow' : 'input'}
