@@ -4,7 +4,13 @@ import './Navbar.css';
 
 const Navbar = () => {
 
-    let wins = localStorage.getItem('wins');
+    let wins = parseInt(localStorage.getItem('wins'));
+    let loses = parseInt(localStorage.getItem('loses'));
+    let ratio = wins / (wins + loses);
+    ratio = ratio.toFixed(2);
+    if (isNaN(ratio)) {
+        ratio = 0;
+    }
     return (
         <div className="navbar">
             <div className="navbar-container">
@@ -12,6 +18,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-container">
                 <span>WINS: { wins }</span>
+            </div>
+            <div className="navbar-container">
+                <span>WIN RATIO: { ratio }</span>
             </div>
         </div>
     );

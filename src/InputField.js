@@ -220,6 +220,10 @@ const InputField = (word) => {
             console.log('y++: ', y);
             if(parseInt(fieldIndex, 10) === 25) {
               setPlayerLose(true);
+              if(count < 5) {
+                let loses = parseInt(localStorage.getItem('loses')) + 1;
+                localStorage.setItem('loses', loses);
+              }
             }
           }
         }

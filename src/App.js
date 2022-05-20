@@ -38,6 +38,9 @@ const Home = () => {
   if (localStorage.getItem('wins') === null) {
     localStorage.setItem('wins', 0);
   }
+  if (localStorage.getItem('loses') === null) {
+    localStorage.setItem('loses', 0);
+  }
   return (
     <>
       <main>
