@@ -199,43 +199,43 @@ const InputField = (word, wordList) => {
               inputWord = '';
               input.focus();
             } else {
-            console.log('array: ',array);
-            console.log('inputarray: ' + inputArray);
-            for (let i = 0; i <= 5; i++) {
-              if(array.includes(inputArray[i])) {
-                console.log('found: ', i + 1);
-                changeInputYellow(y, i + 1);
+              console.log('array: ',array);
+              console.log('inputarray: ' + inputArray);
+              for (let i = 0; i <= 5; i++) {
+                if(array.includes(inputArray[i])) {
+                  console.log('found: ', i + 1);
+                  changeInputYellow(y, i + 1);
+                }
+              }
+              let count = 0;
+              for (let i = 0; i <= 5; i++) {
+                if (inputArray[i] === array[i]) {
+                  console.log('same: ', i + 1);
+                  changeInput(y, i + 1);
+                  count += 1;
+                }
+                console.log('count: ', count);
+                if (count > 5) {
+                  console.log('win');
+                  let wins = parseInt(localStorage.getItem('wins')) + 1;
+                  localStorage.setItem('wins', wins);
+                  setPlayerWin(true);
+                }
+              }
+              inputArray = [];
+              console.log('clear array');
+              console.log(inputArray);
+              console.log('y: ', y);
+              y += 1;
+              console.log('y++: ', y);
+              if(parseInt(fieldIndex, 10) === 25) {
+                setPlayerLose(true);
+                if(count < 5) {
+                  let loses = parseInt(localStorage.getItem('loses')) + 1;
+                  localStorage.setItem('loses', loses);
+                }
               }
             }
-            let count = 0;
-            for (let i = 0; i <= 5; i++) {
-              if (inputArray[i] === array[i]) {
-                console.log('same: ', i + 1);
-                changeInput(y, i + 1);
-                count += 1;
-              }
-              console.log('count: ', count);
-              if (count > 5) {
-                console.log('win');
-                let wins = parseInt(localStorage.getItem('wins')) + 1;
-                localStorage.setItem('wins', wins);
-                setPlayerWin(true);
-              }
-            }
-            inputArray = [];
-            console.log('clear array');
-            console.log(inputArray);
-            console.log('y: ', y);
-            y += 1;
-            console.log('y++: ', y);
-            if(parseInt(fieldIndex, 10) === 25) {
-              setPlayerLose(true);
-              if(count < 5) {
-                let loses = parseInt(localStorage.getItem('loses')) + 1;
-                localStorage.setItem('loses', loses);
-              }
-            }
-          }
           }
         }
       }

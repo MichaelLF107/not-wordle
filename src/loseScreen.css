@@ -1,7 +1,7 @@
 .background {
     top: 0;
     left: 0;
-    background-color: hsla(0, 0%, 0%, 0.25);
+    background-color: hsla(0, 0%, 0%, 0.95);
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -13,8 +13,8 @@
 
 .lose-screen {
     background-color: hsl(0, 0%, 90%);
-    height: 80vh;
-    width: 80vw;
+    height: 70vh;
+    width: 70vw;
     z-index: 99;
     border-radius: 10px;
     display: flex;
